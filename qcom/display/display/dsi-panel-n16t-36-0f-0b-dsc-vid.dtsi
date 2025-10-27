@@ -162,6 +162,14 @@
 	mi,panel-on-dimming-delay = <120>;
 	mi,flatmode-default-on-enabled;
 
+	/* MI DC-dimming configuration (added to enable mi_disp DC flow) */
+	qcom,mdss-dsi-panel-dimming-enabled;
+	mi,dc-feature-enabled;
+	mi,dc-feature-type = "crc_skip_backlight";
+	mi,dc-update-flag;
+	mi,mdss-dc-status-control-dc-6C-cfg = <0x6c 0x01>;
+	mi,mdss-dsi-panel-dc-threshold = <200>;
+
 	/* IRQF_ONESHOT | IRQF_TRIGGER_HIGH */
 	mi,esd-err-irq-gpio = <&tlmm 157 0x2004>;
 	mi,panel-ignore-esd-in-aod;
@@ -382,6 +390,17 @@
 			];
 			mi,mdss-dsi-aod-exit-command-update = <0x51 0 2>, <0x48 2 1>;
 			mi,mdss-dsi-aod-exit-command-state = "dsi_hs_mode";
+
+			/* DC DIMMING ON/OFF command sets for MI driver */
+			mi,mdss-dsi-dimmingon-command = [
+				15 00 00 29 01 80 01 F0 5A 01
+			];
+			mi,mdss-dsi-dimmingon-command-state = "dsi_hs_mode";
+
+			mi,mdss-dsi-dimmingoff-command = [
+				15 00 00 29 01 80 01 F0 5A 00
+			];
+			mi,mdss-dsi-dimmingoff-command-state = "dsi_hs_mode";
 		};
 	};
 };

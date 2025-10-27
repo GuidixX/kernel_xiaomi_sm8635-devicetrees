@@ -8,7 +8,20 @@
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
 		qcom,mdss-dsi-underflow-color = <0xff>;
 		qcom,mdss-dsi-border-color = <0>;
-		qcom,dsi-ctrl-num = <0>;
+		mi,mdss-dsi-aod-exit-command-state = "dsi_hs_mode";
+
+		/* DC DIMMING ON/OFF command sets for MI driver */
+		mi,mdss-dsi-dimmingon-command = [
+			15 00 00 29 01 80 01 F0 5A 01
+		];
+		mi,mdss-dsi-dimmingon-command-state = "dsi_hs_mode";
+
+		mi,mdss-dsi-dimmingoff-command = [
+			15 00 00 29 01 80 01 F0 5A 00
+		];
+		mi,mdss-dsi-dimmingoff-command-state = "dsi_hs_mode";
+
+		qcom,dsi-control-num = <0>;
 		qcom,dsi-phy-num = <0>;
 		qcom,mdss-dsi-traffic-mode = "burst_mode";
 		qcom,mdss-dsi-lane-map = "lane_map_0123";
@@ -334,6 +347,13 @@
 	mi,panel-on-dimming-delay = <120>;
 	qcom,mdss-dsi-panel-dimming-enabled;
 
+	/* MI DC-dimming configuration (added to enable mi_disp DC flow) */
+	mi,dc-feature-enabled;
+	mi,dc-feature-type = "crc_skip_backlight";
+	mi,dc-update-flag;
+	mi,mdss-dc-status-control-dc-6C-cfg = <0x6c 0x01>;
+	mi,mdss-dsi-panel-dc-threshold = <200>;
+
 	mi,flatmode-default-on-enabled;
 
 	mi,local-hbm-enabled;
@@ -424,6 +444,17 @@
 				05 00 00 00 00 00 01 38
 			];
 			mi,mdss-dsi-aod-exit-command-state = "dsi_hs_mode";
+
+			/* Minimal DIMMING ON/OFF command sets for MI driver to use */
+			mi,mdss-dsi-dimmingon-command = [
+				39 00 00 40 00 00 02 6C 01
+			];
+			mi,mdss-dsi-dimmingon-command-state = "dsi_hs_mode";
+
+			mi,mdss-dsi-dimmingoff-command = [
+				39 00 00 40 00 00 02 6C 00
+			];
+			mi,mdss-dsi-dimmingoff-command-state = "dsi_hs_mode";
 
 			mi,mdss-dsi-doze-hbm-nolp-command = [
 				39 00 00 00 00 00 03 5F 00 40
