@@ -7,10 +7,7 @@
 		qcom,mdss-dsi-bpp = <30>;
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
 		qcom,mdss-dsi-underflow-color = <0xff>;
-		qco			39 00 00 10 00 00 03 F0 A5 A5
-		];
-		mi,mdss-dsi-aod-exit-command-update = <0x51 1 2>, <0x60 4 1>;
-		mi,mdss-dsi-aod-exit-command-state = "dsi_hs_mode";
+		qcom,mdss-dsi-border-color = <0>;
 
 		/* DC DIMMING ON/OFF command sets for MI driver */
 		mi,mdss-dsi-dimmingon-command = [
@@ -24,7 +21,10 @@
 		mi,mdss-dsi-dimmingoff-command-state = "dsi_hs_mode";
 
 		mi,mdss-dsi-dbv-327-to-326-command = [
-			39 00 00 40 00 00 03 F0 5A 5Adsi-border-color = <0>;
+			39 00 00 40 00 00 03 F0 5A 5A
+		];
+		mi,mdss-dsi-dbv-327-to-326-command-state = "dsi_hs_mode";
+
 		qcom,dsi-ctrl-num = <0>;
 		qcom,dsi-phy-num = <0>;
 		qcom,mdss-dsi-traffic-mode = "burst_mode";
