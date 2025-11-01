@@ -126,6 +126,17 @@
 			qcom,bus-freq = <1>;
 			qcom,bus-min = <1>;
 			qcom,bus-max = <3>;
+
+		/* Low_SVS_D2 */
+		qcom,gpu-pwrlevel@11 {
+			reg = <11>;
+			qcom,gpu-freq = <150000000>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D2>;
+
+			qcom,bus-freq = <1>;
+			qcom,bus-min = <1>;
+			qcom,bus-max = <3>;
+			};
 		};
 	};
 };
