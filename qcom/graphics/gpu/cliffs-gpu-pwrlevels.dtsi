@@ -8,7 +8,7 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		/* Stock 1100MHz */
+		/* Turbo_L2 */
 		qcom,gpu-pwrlevel@0 {
 			reg = <0>;
 			qcom,gpu-freq = <1100000000>;
@@ -21,24 +21,24 @@
 			qcom,acd-level = <0x88285FFD>;
 		};
 
-		/* Overclock */
+		/* Turbo_L1 */
 		qcom,gpu-pwrlevel@1 {
 			reg = <1>;
 			qcom,gpu-freq = <1050000000>;
-			qcom,level = <RPMH_REGULATOR_LEVEL_TURBO_L2>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_TURBO_L1>;
 
-			qcom,bus-freq = <15>;
+			qcom,bus-freq = <9>;
 			qcom,bus-min = <9>;
-			qcom,bus-max = <15>;
+			qcom,bus-max = <9>;
 
 			qcom,acd-level = <0x88275FFD>;
 		};
 
-		/* Turbo_L2*/
+		/* Turbo_L0 */
 		qcom,gpu-pwrlevel@2 {
 			reg = <2>;
 			qcom,gpu-freq = <1000000000>;
-			qcom,level = <RPMH_REGULATOR_LEVEL_TURBO_L1>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_TURBO_L0>;
 
 			qcom,bus-freq = <9>;
 			qcom,bus-min = <9>;
@@ -47,11 +47,11 @@
 			qcom,acd-level = <0xA02F5FFD>;
 		};
 
-		/* Turbo_L0 */
+		/* Turbo */
 		qcom,gpu-pwrlevel@3 {
 			reg = <3>;
 			qcom,gpu-freq = <950000000>;
-			qcom,level = <RPMH_REGULATOR_LEVEL_TURBO_L0>;
+			qcom,level = <RPMH_REGULATOR_LEVEL_TURBO>;
 
 			qcom,bus-freq = <9>;
 			qcom,bus-min = <9>;
