@@ -193,6 +193,13 @@ Optional properties:
 					implemented immediately by changing panel vertical
 					front porch values.
 - qcom,dsi-supported-dfps-list:	List containing all the supported refresh rates.
+- mi,aod-refresh-rate:           Refresh rate reserved for AOD on N16T video panels.
+                                Must be 30 and present in qcom,dsi-supported-dfps-list,
+                                with a normal refresh rate first in the list.
+                                The driver omits this mode from DRM/EDID and the
+                                userspace DFPS range, selects it internally in
+                                LP1/LP2, and restores the requested mode on exit.
+                                Requires MI_DISPLAY_MODIFY. Omit to disable.
 - qcom,dsi-supported-qsync-min-fps-list:	The fps value in this list indicates the qsync min fps
 					corresponding to the mode in the qcom,dsi-supported-dfps-list with same index.
 					qcom,dsi-supported-qsync-min-fps-list cannot be defined along with
